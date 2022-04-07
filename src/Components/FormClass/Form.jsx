@@ -1,0 +1,37 @@
+import React, { Component, Fragment } from 'react';
+import { Input } from './Input';
+import { Button } from './Button';
+
+export class Form extends Component {
+    styles = {
+        ul: {},
+    }
+    state = {
+        name: 'Click here!',
+        value: '',
+        messages: [],
+        visible: true,
+    }
+
+    handleClick = () => {
+        this.setState({messages: [...this.state.messages, this.state.value]});
+        this.setState({value: ''})
+    }
+
+    handleChange = (event) => {
+        this.setState({ value: event.target.value})
+    } 
+  
+    render() {
+    return <Fragment>
+        {this.state.visible && <ul styles = {this.styles.ul}>
+        {this.state.messages.map((message) =>
+        <li>{message}</li>)}
+        </ul>}
+        <Input change={this.handleChange} value={this.state.value}/>
+        <Button name={this.state.name} click={this.handleClick} type='submit'/>
+        <button onClick={() => this.setState({visible: !this.state.visible})}>{this.state.visible ? 'hide' : 'show'}</button>
+    </Fragment>
+    
+  }
+}
