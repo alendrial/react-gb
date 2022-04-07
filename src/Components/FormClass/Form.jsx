@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Input } from './Input';
 import { Button } from './Button';
+import { Message } from './Message';
 
 export class Form extends Component {
     styles = {

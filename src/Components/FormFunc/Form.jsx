@@ -1,6 +1,7 @@
 import React, { useState, Fragment } from 'react';
 import { Input } from './Input';
 import { Button } from './Button';
+import Message from './Message';
 
 const Form = () => {
      const styles = {
