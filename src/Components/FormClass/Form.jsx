@@ -4,9 +4,7 @@ import { Button } from './Button';
 import { Message } from './Message';
 
 export class Form extends Component {
-    styles = {
-        ul: {},
-    }
+    
     state = {
         name: 'Click here!',
         value: '',
@@ -25,13 +23,13 @@ export class Form extends Component {
   
     render() {
     return <Fragment>
-        {this.state.visible && <ul styles = {this.styles.ul}>
-        {this.state.messages.map((message) =>
-        <li>{message}</li>)}
-        </ul>}
         <Input change={this.handleChange} value={this.state.value}/>
-        <Button name={this.state.name} click={this.handleClick} type='submit'/>
-        <button onClick={() => this.setState({visible: !this.state.visible})}>{this.state.visible ? 'hide' : 'show'}</button>
+        <br/>
+        <Button className="add-btn" name={this.state.name} click={this.handleClick} type='submit'/>
+        <button className="hide-btn" onClick={() => this.setState({visible: !this.state.visible})}>{this.state.visible ? 'Hide messages' : 'Show messages'}</button>
+        <button className="rm-btn" onClick={() => this.setState({messages: []})}>Clear messages</button>
+        {this.state.visible && <Message post={this.state.messages} />}
+        
     </Fragment>
     
   }

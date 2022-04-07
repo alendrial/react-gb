@@ -1,9 +1,9 @@
 import React, { useState, Fragment } from 'react';
 import { Input } from './Input';
 import { Button } from './Button';
-import Message from './Message';
+import { Message } from './Message';
 
-const Form = () => {
+export const Form = () => {
      const styles = {
          ul: {},
      }
@@ -24,15 +24,13 @@ const Form = () => {
     } 
   
     return <Fragment>
-        {visible && <ul styles = {styles.ul}>
-        {messages.map((message) =>
-        <li>{message}</li>)}
-        </ul>}
+        
         <Input change={handleChange} value={value}/>
-        <Button name={name} click={handleClick} type='submit'/>
-        <button onClick={() => setVisible(!visible)}>{visible ? 'hide' : 'show'}</button>
+        <Button className="add-btn" name={name} click={handleClick} type='submit'/>
+        <button className="hide-btn" onClick={() => setVisible(!visible)}>{visible ? 'hide' : 'show'}</button>
+        <button className="rm-btn" onClick={() => setMessages([])}>Clear messages</button>
+        {visible && <Message post={messages}/>}
     </Fragment>
     
 }
 
-export default Form

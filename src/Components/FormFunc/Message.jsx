@@ -1,10 +1,21 @@
 import React from 'react';
 
-const Message = (props) => {
+export const Message = (props) => {
+   
+    const styles = {
+        ul: {
+            listStyle: 'square',
+       
+        },
+        li: {
+            color: 'purple',
+        }
+    }
     return (
-        <p className="message">
-            {props.message}
-        </p>
+        <ul style={styles.ul} className="msg-block">
+            {props.post.map((message) => (
+              <li style={styles.li}>{message}</li>
+            ))}
+        </ul>
     )
 }
-export default Message
