@@ -1,6 +1,6 @@
 import React from "react"
 import "./App.css"
-import { Form } from "./Components/FormFunc/Form"
+import { Form } from "./Components/FormClass/Form"
 
 export const App = () => {
   return (

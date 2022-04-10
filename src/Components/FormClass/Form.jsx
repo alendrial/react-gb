@@ -20,11 +20,21 @@ export class Form extends Component {
     this.setState({ value: event.target.value })
   }
 
+  componentDidMount() {
+    console.log("form did mount")
+  }
+
+  componentDidUpdate() {
+    console.log("component updated")
+  }
+
   render() {
     return (
       <Fragment>
+        {this.state.visible && <>
         <Input change={this.handleChange} value={this.state.value} />
         <br />
+        
         <Button
           className="add-btn"
           name={this.state.name}
@@ -32,17 +42,20 @@ export class Form extends Component {
           type="submit"
         />
         <button
-          className="hide-btn"
-          onClick={() => this.setState({ visible: !this.state.visible })}
-        >
-          {this.state.visible ? "Hide messages" : "Show messages"}
-        </button>
-        <button
           className="rm-btn"
           onClick={() => this.setState({ messages: [] })}
         >
           Clear messages
         </button>
+        </>
+        }
+        <button
+          className="hide-btn"
+          onClick={() => this.setState({ visible: !this.state.visible })}
+        >
+          {this.state.visible ? "Hide messages" : "Show messages"}
+        </button>
+        
         {this.state.visible && <Message post={this.state.messages} />}
       </Fragment>
     )
