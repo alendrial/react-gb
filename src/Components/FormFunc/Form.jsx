@@ -18,9 +18,9 @@ export const Form = () => {
     setValue("")
   }
 
-  const handleChange = (event) => {
+  const handleChange = useCallback((event) => {
     setValue(event.target.value);
-  }
+  },[])
 
   return (
     <Fragment>
