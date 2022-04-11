@@ -24,7 +24,7 @@ export class Button extends PureComponent {
   }
 
   componentDidUpdate(props, state, snapshot) {
-    console.log(props, state, snapshot);
+    // console.log(props, state, snapshot);
   }
 
   // shouldComponentUpdate(nextProps, nextState) {
@@ -40,21 +40,21 @@ export class Button extends PureComponent {
   }
 
   getSnapshotBeforeUpdate() {
-    return { value: 999 };
+    // return { value: 999 };
   }
 
   render() {
-    // return <button onClick={this.props.click}>{this.props.name}</button>
-    return (
-      <>
-        <br />
-        <h2>Child component</h2>
-        <p>state {this.state.count}</p>
-        <p>props {this.props.count}</p>
-        <button onClick={() => this.setState({ count: this.state.count + 1 })}>
-        +1
-        </button>
-      </>
-    );
+    return <button onClick={this.props.click}>{this.props.name}</button>
+    // return (
+    //   <>
+    //     <br />
+    //     <h2>Child component</h2>
+    //     <p>state {this.state.count}</p>
+    //     <p>props {this.props.count}</p>
+    //     <button onClick={() => this.setState({ count: this.state.count + 1 })}>
+    //     +1
+    //     </button>
+    //   </>
+    // );
   }
 }

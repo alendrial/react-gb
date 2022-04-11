@@ -1,18 +1,17 @@
 import React, { Component } from "react"
 
-export class Input extends Component {
+export class InputAuthor extends Component {
 
 
   render() {
     return (
       <>
         <input
-          className="InputText"
+          className="InputAuthor"
           type="text"
           value={this.props.value}
-          placeholder="Enter something..."
+          placeholder="Enter author name"
           onChange={this.props.change}
-          style={{marginRight: '10px'}}
         />
       </>
     )

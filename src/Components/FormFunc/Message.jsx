@@ -6,7 +6,7 @@ export const Message = (props) => {
       listStyle: "square",
     },
     li: {
-      color: "purple",
+      color: '#f72d77',
     },
   }
   return (
