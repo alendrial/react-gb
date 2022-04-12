@@ -6,7 +6,7 @@ export const Input = (props) => {
       <input
         className="InputText"
         type="text"
-        value={props.value}
+        value={props.message}
         placeholder="Enter something..."
         onChange={props.change}
         style={{marginRight: '20px'}}

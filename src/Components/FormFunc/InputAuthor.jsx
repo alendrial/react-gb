@@ -6,8 +6,8 @@ export const InputAuthor = (props) => {
       <input
         className="InputAuthor"
         type="text"
-        value={props.value}
-        placeholder="Enter author name"
+        value={props.author}
+        placeholder="Username"
         onChange={props.change}
       />
     </>

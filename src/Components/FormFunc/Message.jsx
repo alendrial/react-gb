@@ -1,19 +1,12 @@
 import React from 'react'
 
 export const Message = (props) => {
-  const styles = {
-    ul: {
-      listStyle: "square",
-    },
-    li: {
-      color: '#f72d77',
-    },
-  }
+  
   return (
-    <ul style={styles.ul} className="msg-block">
-      {props.post.map((message) => (
-        <li style={styles.li}>{message}</li>
-      ))}
-    </ul>
+    <>
+      <p className="author">{props.message.author}</p>
+      <p className="text">{props.message.message}</p>
+      <p className="text">{props.message.time}</p>
+    </>
   )
 }
