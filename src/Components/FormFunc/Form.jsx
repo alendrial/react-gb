@@ -55,7 +55,7 @@ export const Form = () => {
       !messagesList[messagesList.length - 1].robotMessage
     ) {
       alert("Wait for your response, it will take a few seconds")
-      setTimeout(() => {
+      const timeout = setTimeout(() => {
         setMessagesList([
           ...messagesList,
           {
@@ -66,8 +66,11 @@ export const Form = () => {
           },
         ])
       }, 1000)
+      return () => {
+        clearTimeout(timeout)
+      }
     }
-  }, [messagesList.length])
+  }, [messagesList])
 
   return (
     <Fragment>
