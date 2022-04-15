@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 export const InputAuthor = (props) => {
   return (
@@ -11,5 +11,5 @@ export const InputAuthor = (props) => {
         onChange={props.change}
       />
     </>
-  )
-}
+  );
+};

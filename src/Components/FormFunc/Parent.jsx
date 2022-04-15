@@ -6,7 +6,6 @@
 //     const [toggle, setToggle] = useState(true)
 //     const inputElement = useRef(null)
 
-
 //     useEffect(() => {
 //         console.log('Parent did mount')
 //         console.log(inputElement)
@@ -19,8 +18,6 @@
 //     useEffect(() => {
 //         console.log('Count and Toggle changed')
 //     }, [count, toggle])
-
-    
 
 //     return <>
 

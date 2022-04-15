@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 export const Input = (props) => {
   return (
@@ -9,8 +9,8 @@ export const Input = (props) => {
         value={props.message}
         placeholder="Enter something..."
         onChange={props.change}
-        style={{ marginRight: "20px" }}
+        style={{ marginRight: '20px' }}
       />
     </>
-  )
-}
+  );
+};
