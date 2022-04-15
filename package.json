@@ -26,6 +26,7 @@
     "css-loader": "^6.7.1",
     "eslint-plugin-prettier": "^4.0.0",
     "html-webpack-plugin": "^5.5.0",
+    "jest": "^27.5.1",
     "mini-css-extract-plugin": "^2.6.0",
     "prettier": "^2.6.1",
     "sass": "^1.50.0",
@@ -40,6 +41,7 @@
     "start": "webpack serve --mode=development",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "build": "webpack --mode=production"
+    "build": "webpack --mode=production",
+    "test": "jest"
   }
 }
