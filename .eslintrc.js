@@ -20,7 +20,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', 'prettier', 'react-hooks', 'jest'],
+  plugins: ['react', 'prettier', 'react-hooks', 'jest', 'storybook'],
   rules: {
     'prettier/prettier': [
       'error',
