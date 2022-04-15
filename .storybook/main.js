@@ -8,5 +8,10 @@ module.exports = {
     "@storybook/addon-essentials",
     "@storybook/addon-interactions"
   ],
-  "framework": "@storybook/react"
+  "framework": "@storybook/react",
+  config.module.rules.push({
+    test: /\.scss$/,
+    use: ['style-loader', 'css-loader?url=false', 'sass-loader'],
+    include: path.resolve(__dirname, '../'),
+  });
 }
