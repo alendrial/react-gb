@@ -6,32 +6,33 @@ import { toBeDisabled } from '@testing-library/jest-dom/dist/matchers';
 import userEvent from '@testing-library/user-event';
 import { waitFor } from '@storybook/testing-library';
 
+
 describe('Button', (props) => {
     it('render component', () => {
-        render(<Button />)
+        render(<Button name={'Send message!'} />)
     })
     it('render with snapshot', () => {
-        const { asFragment } = render(<Button />)
+        const { asFragment } = render(<Button name={'Send message!'} />)
         expect(asFragment()).toMatchSnapshot()
     })
     it('render with text', () => {
-        render(<Button />)
+        render(<Button name={'Send message!'} />)
         expect(screen.getByText(/Send message!/)).toBeInTheDocument()
     })
     it('render multiple components', () => {
         render(
         <>
-        <Button />
-        <Button />
+        <Button name={'Send message!'} />
+        <Button name={'Send message!'} />
         </>)
         expect(screen.queryAllByRole('button').length).toBe(2)
     })
     it('button is disabled', () => {
-        render(<Button disabled />)
+        render(<Button name={'Send message!'} disabled />)
         expect(screen.getByText(/Send message!/)).toBeDisabled()
     })
     it('button have style background color green', () => {
-        render(<Button />)
+        render(<Button name={'Send message!'} />)
         expect(screen.getByText(/Send message!/)).toHaveStyle({ backgroundColor: '#4cc49c'})
     })
     // it('button click with userEvent', () => {
@@ -48,5 +49,4 @@ describe('Button', (props) => {
     //         timeout:1100,
     //     })
     // })
-    
 })

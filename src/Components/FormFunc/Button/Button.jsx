@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
+
 export const Button = (props) => {
   return (
     <button
@@ -8,7 +9,7 @@ export const Button = (props) => {
       disabled={props.disabled}
       style={{ backgroundColor: "#4cc49c" }}
     >
-      Send message!
+      {props.name}
     </button>
   );
 };
