@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from "prop-types";
 
 export const Message = (props) => {
   return (
@@ -9,3 +10,4 @@ export const Message = (props) => {
     </>
   );
 };
+

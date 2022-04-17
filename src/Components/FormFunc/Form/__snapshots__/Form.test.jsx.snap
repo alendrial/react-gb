@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form testing render with snapshot should render the form with snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="FormFlexBox"
+  >
+    <input
+      class="InputText"
+      placeholder="Enter something..."
+      style="margin-right: 20px;"
+      type="text"
+      value=""
+    />
+    <input
+      class="InputAuthor"
+      placeholder="Username"
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    class="ButtonFlexBox"
+  >
+    <button
+      disabled=""
+      style="background-color: rgb(76, 196, 156);"
+    >
+      Send message!
+    </button>
+    <button
+      class="hide-btn"
+    >
+      hide
+    </button>
+    <button
+      class="rm-btn"
+    >
+      Clear messages
+    </button>
+  </div>
+  <div
+    class="chatBox"
+  >
+    <ul
+      class="msg-block"
+      style="list-style: none;"
+    />
+  </div>
+</DocumentFragment>
+`;

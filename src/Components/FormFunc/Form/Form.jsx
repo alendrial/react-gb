@@ -80,7 +80,7 @@ export const Form = () => {
         <InputAuthor change={changeAu} author={author} />
       </div>
 
-      <div className="ButtonFlexBox">
+      <div className="buttonFlexBox">
         <Button
           className="add-btn"
           name={name}

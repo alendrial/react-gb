@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import PropTypes from "prop-types";
+
 
 export const Input = (props) => {
   return (
@@ -13,4 +15,13 @@ export const Input = (props) => {
       />
     </>
   );
+};
+
+Input.propTypes = {
+  className: PropTypes.string,
+  type: PropTypes.string,
+  value: PropTypes.string,
+  placeholder: PropTypes.string,
+  onChange: PropTypes.func,
+  style: PropTypes.object,
 };

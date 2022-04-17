@@ -35,16 +35,16 @@ describe('Button', (props) => {
         render(<Button name={'Send message!'} />)
         expect(screen.getByText(/Send message!/)).toHaveStyle({ backgroundColor: '#4cc49c'})
     })
-    // it('button click with userEvent', () => {
-    //     const mockHandler = jest.fn();
-    //     render (<Button handleClick={mockHandler} />)
-    //     userEvent.click(screen.getByText('Send message!'))
-    //     expect(mockHandler).toBeCalledTimes(1)
-    // })
+    it('button click with userEvent', () => {
+        const mockHandler = jest.fn();
+        render(<Button click={mockHandler} />)
+        userEvent.click(screen.getByRole('button'))
+        expect(mockHandler).toHaveBeenCalledTimes(1)
+    })
     // it('button async click', async () => {
     //     const mockHandler = jest.fn();
     //     render (<Button handleClick={() => setTimeout(mockHandler, 1000)} />)
-    //     userEvent.click(screen.getByText(/Send message!/))
+    //     userEvent.click(screen.getByRole('button'))
     //     await waitFor(() => expect(mockHandler).toHaveBeenCalledTimes(1), {
     //         timeout:1100,
     //     })
