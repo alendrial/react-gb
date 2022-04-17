@@ -20,7 +20,7 @@ exports[`Form testing render with snapshot should render the form with snapshot 
     />
   </div>
   <div
-    class="ButtonFlexBox"
+    class="buttonFlexBox"
   >
     <button
       disabled=""
