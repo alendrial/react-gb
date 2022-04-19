@@ -1,6 +1,7 @@
 import React from 'react';
 import { Message } from './Message/Message';
-import PropTypes from "prop-types";
+import './Chat.scss'
+
 
 export const Chat = (props) => {
   const styles = {
@@ -29,5 +30,3 @@ export const Chat = (props) => {
   );
 };
 
-Chat.propTypes = {
-};

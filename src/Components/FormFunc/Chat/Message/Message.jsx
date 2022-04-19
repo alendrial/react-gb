@@ -1,5 +1,6 @@
 import React from 'react';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
+import './Message.scss';
 
 export const Message = (props) => {
   return (
@@ -10,4 +11,3 @@ export const Message = (props) => {
     </>
   );
 };
-
