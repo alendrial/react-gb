@@ -86,7 +86,6 @@ export const Form = () => {
           name={name}
           click={handleClick}
           type="submit"
-          onButtonClick={() => {}}
           disabled={message && author ? false : true}
         />
 
