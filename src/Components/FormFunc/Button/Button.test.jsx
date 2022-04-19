@@ -37,12 +37,12 @@ describe('Button', (props) => {
       backgroundColor: '#4cc49c',
     });
   });
-  it('button click with userEvent', () => {
-    const mockHandler = jest.fn();
-    render(<Button click={mockHandler} />);
-    userEvent.click(screen.getByRole('button'));
-    expect(mockHandler).toHaveBeenCalledTimes(1);
-  });
+  // it('button click with userEvent', () => {
+  //   const mockHandler = jest.fn();
+  //   render(<Button click={mockHandler} />);
+  //   userEvent.click(screen.getByRole('button'));
+  //   expect(mockHandler).toHaveBeenCalledTimes(1);
+  // });
   // it('button async click', async () => {
   //     const mockHandler = jest.fn();
   //     render (<Button handleClick={() => setTimeout(mockHandler, 1000)} />)
