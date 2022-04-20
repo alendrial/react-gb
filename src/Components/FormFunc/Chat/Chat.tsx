@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Message } from './Message/Message';
-import './Chat.scss'
+import './Chat.scss';
 
+interface ChatProps {
+  post: messagesList[],
+  index: number, 
+}
 
-export const Chat = (props) => {
+export const Chat: FC<ChatProps> = (props) => {
   const styles = {
     ul: {
       listStyle: 'none',
@@ -29,4 +33,3 @@ export const Chat = (props) => {
     </div>
   );
 };
-

@@ -1,8 +1,15 @@
-import React, { useState } from 'react';
+import React, { FC } from 'react';
 import PropTypes from 'prop-types';
 import './Button.scss';
 
-export const Button = (props) => {
+interface ButtonProps {
+  disabled: boolean;
+  click: () => void;
+  style: string;
+  name: string;
+}
+
+export const Button: FC<ButtonProps> = (props) => {
   return (
     <button
       onClick={props.click}
@@ -12,10 +19,4 @@ export const Button = (props) => {
       {props.name}
     </button>
   );
-};
-
-Button.propTypes = {
-  disabled: PropTypes.bool,
-  name: PropTypes.string,
-  onClick: PropTypes.func,
 };

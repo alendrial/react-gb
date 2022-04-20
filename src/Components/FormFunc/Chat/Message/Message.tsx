@@ -1,8 +1,15 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { FC } from 'react';
 import './Message.scss';
 
-export const Message = (props) => {
+interface MessageProps {
+  message: {
+    author: string;
+    message: string;
+    time: number;
+  }
+}
+
+export const Message: FC<MessageProps> = (props) => {
   return (
     <>
       <p className="author">{props.message.author}</p>
