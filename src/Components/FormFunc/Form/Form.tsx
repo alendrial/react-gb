@@ -4,13 +4,21 @@ import React, {
   useCallback,
   useRef,
   useEffect,
+  FC,
 } from 'react';
 import { Input } from '../InputMessage/Input';
 import { Button } from '../Button/Button';
 import { InputAuthor } from '../InputAuthor/InputAuthor';
 import { Chat } from '../Chat/Chat';
 
-export const Form = () => {
+export interface FormProps {
+  defaultMessage: string;
+  defaultAuthor: string;
+  time: number;
+}
+
+
+export const Form: FC<FormProps> = () => {
   const [name, setName] = useState('Send message!');
 
   const [defaultMessage] = useState('Your message has been received!');
@@ -40,14 +48,20 @@ export const Form = () => {
     setTime('');
   };
 
-  const changeM = useCallback((event) => {
+  const changeM = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
     setMessage(event.target.value);
   }, []);
 
-  const changeAu = useCallback((event) => {
+  const changeAu = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
     setAuthor(event.target.value);
     setTime(createCurrentTime());
   }, []);
+
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    inputRef.current!.focus()
+}, [messagesList])
 
   useEffect(() => {
     if (
@@ -74,8 +88,8 @@ export const Form = () => {
 
   return (
     <Fragment>
-      <div className="FormFlexBox">
-        <Input change={changeM} message={message} />
+      <div className="formFlexBox">
+        <Input change={changeM} message={message} ref={inputRef} />
 
         <InputAuthor change={changeAu} author={author} />
       </div>

@@ -3,9 +3,9 @@ import { Message } from './Message/Message';
 import './Chat.scss';
 
 interface ChatProps {
-  post: messagesList[],
-  index: number, 
+  post: Message[];
 }
+
 
 export const Chat: FC<ChatProps> = (props) => {
   const styles = {

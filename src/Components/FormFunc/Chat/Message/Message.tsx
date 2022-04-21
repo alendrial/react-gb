@@ -1,12 +1,16 @@
 import React, { FC } from 'react';
 import './Message.scss';
 
+export interface Message {
+  id: number;
+  author: string;
+  message: string;
+  time: number;
+  robotMessage?: string;
+}
+
 interface MessageProps {
-  message: {
-    author: string;
-    message: string;
-    time: number;
-  }
+  message: Message;
 }
 
 export const Message: FC<MessageProps> = (props) => {

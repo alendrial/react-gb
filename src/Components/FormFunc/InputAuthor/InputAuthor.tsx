@@ -3,7 +3,7 @@ import './InputAuthor.scss';
 
 interface InputAuthorProps {
   author: string,
-  change: () => void,
+  change: (event: React.ChangeEvent<HTMLInputElement>) => void,
 }
 
 export const InputAuthor: FC<InputAuthorProps> = (props) => {

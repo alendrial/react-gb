@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { FC } from 'react';
 import './App.scss';
-import { Form } from './components/FormFunc/Form/Form';
+import { Form, FormProps } from './components/FormFunc/Form/Form';
 
-export const App = () => {
+export const App: FC<FormProps> = () => {
   return (
     <div className="form" style={{ marginTop: '20px' }}>
       <Form />
