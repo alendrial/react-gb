@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
-import PropTypes from 'prop-types';
 import './Button.scss';
 
 interface ButtonProps {
   disabled: boolean;
   click: () => void;
-  style: string;
   name: string;
+  className: string;
+  type: string;
 }
 
 export const Button: FC<ButtonProps> = (props) => {

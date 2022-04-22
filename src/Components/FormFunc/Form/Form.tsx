@@ -10,24 +10,26 @@ import { Input } from '../InputMessage/Input';
 import { Button } from '../Button/Button';
 import { InputAuthor } from '../InputAuthor/InputAuthor';
 import { Chat } from '../Chat/Chat';
+import { Message } from '../Chat/Message/Message'
 
 export interface FormProps {
   defaultMessage: string;
   defaultAuthor: string;
-  time: number;
+  visible: boolean;
+  robotMessage: boolean;
 }
 
 
 export const Form: FC<FormProps> = () => {
-  const [name, setName] = useState('Send message!');
+  const [name, setName] = useState<string>('Send message!');
 
-  const [defaultMessage] = useState('Your message has been received!');
-  const [defaultAuthor] = useState('Call me mr. Robot!');
+  const [defaultMessage] = useState<string>('Your message has been received!');
+  const [defaultAuthor] = useState<string>('Call me mr. Robot!');
 
-  const [message, setMessage] = useState('');
-  const [author, setAuthor] = useState('');
-  const [messagesList, setMessagesList] = useState([]);
-  const [time, setTime] = useState('');
+  const [message, setMessage] = useState<string>('');
+  const [author, setAuthor] = useState<string>('');
+  const [messagesList, setMessagesList] = useState<Message[]>([]);
+  const [time, setTime] = useState<string>('');
 
   const [visible, setVisible] = useState(true);
 

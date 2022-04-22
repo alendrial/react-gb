@@ -2,11 +2,11 @@ import React, { FC } from 'react';
 import './Message.scss';
 
 export interface Message {
-  id: number;
+  id?: number;
   author: string;
   message: string;
-  time: number;
-  robotMessage?: string;
+  time: string;
+  robotMessage?: boolean;
 }
 
 interface MessageProps {
