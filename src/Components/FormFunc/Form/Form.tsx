@@ -6,11 +6,11 @@ import React, {
   useEffect,
   FC,
 } from 'react';
-import { Input } from '../InputMessage/Input';
-import { Button } from '../Button/Button';
-import { InputAuthor } from '../InputAuthor/InputAuthor';
-import { Chat } from '../Chat/Chat';
-import { Message } from '../Chat/Message/Message'
+import { Input } from './../InputMessage/Input';
+import { Button } from './../Button/Button';
+import { InputAuthor } from './../InputAuthor/InputAuthor';
+import { Chat } from './../Chat/Chat';
+import { Message } from './../Chat/Message/Message'
 
 export interface FormProps {
   defaultMessage: string;
