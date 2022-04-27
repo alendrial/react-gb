@@ -1,13 +1,13 @@
 import React, { FC } from 'react';
 import { Message } from './Message/Message';
-import './Chat.scss';
+import './MessageList.scss';
 
-interface ChatProps {
-  post: Message[];
+interface MessageListProps {
+  messages: Message[];
 }
 
 
-export const Chat: FC<ChatProps> = (props) => {
+export const MessageList: FC<MessageListProps> = ({ messages }) => {
   const styles = {
     ul: {
       listStyle: 'none',
@@ -20,10 +20,10 @@ export const Chat: FC<ChatProps> = (props) => {
   return (
     <div className="chatBox">
       <ul style={styles.ul} className="msg-block">
-        {props.post.map((message, index) => (
+        {messages.map((message, index) => (
           <li
             key={index}
-            className={message.robotMessage ? 'message__system' : 'message'}
+            className={message.botMessage ? 'message__system' : 'message'}
             style={styles.li}
           >
             <Message message={message} />

@@ -38,8 +38,18 @@
   }
 }
 
-.form {
+main {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+h2 {
+  font-size: 40px;
+  font-family:Impact;
+	font-style:italic;
+}
+
+.clearMsgButton {
+  
 }
