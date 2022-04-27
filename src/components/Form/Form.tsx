@@ -18,7 +18,7 @@ export const Form: FC<FormProps> = memo(({ addMessage }) => {
   return (
     <form onSubmit={handleSubmitForm}>
       <Input
-        placeholder="Enter something..."
+        placeholder={"Enter something..."}
         value={value}
         onChange={(event) => setValue(event.target.value)}
       />

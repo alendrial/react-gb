@@ -5,10 +5,9 @@ interface InputProps {
   value: string;
   placeholder?: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  ref?: React.ForwardedRef<HTMLInputElement>;
 }
 
-export const Input: FC<InputProps> =({value, onChange, placeholder, ref}) => {
+export const Input: FC<InputProps> = ({ value, onChange }) => {
   return (
     <>
       <input
@@ -16,6 +15,7 @@ export const Input: FC<InputProps> =({value, onChange, placeholder, ref}) => {
         value={value}
         onChange={onChange}
         style={{ marginRight: '20px' }}
+        ref={ref}
       />
     </>
   );
