@@ -3,7 +3,7 @@ import { Input } from '../InputMessage/Input';
 import { Button } from '../Button/Button';
 
 interface FormProps {
-  addMessage: (a: string) => void;
+  addMessage: (value: string) => void;
 }
 
 export const Form: FC<FormProps> = memo(({ addMessage }) => {

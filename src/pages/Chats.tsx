@@ -23,7 +23,7 @@ export const Chats: FC<ChatsProps> = ({
   onDeleteChat
 }) => {
   const { chatId } = useParams();
-
+  
   useEffect(() => {
     if (
       chatId &&

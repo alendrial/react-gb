@@ -55,7 +55,7 @@ export const App: FC = () => {
       })),
     [Object.entries(messages).length]
   );
-
+  
   const onAddChat = (chat: Chat) => {
     setMessages({
       ...messages,

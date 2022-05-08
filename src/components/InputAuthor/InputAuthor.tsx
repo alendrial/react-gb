@@ -8,7 +8,6 @@ interface InputAuthorProps {
 
 export const InputAuthor: FC<InputAuthorProps> = (props) => {
   return (
-    <>
       <input
         className="InputAuthor"
         type="text"
@@ -16,7 +15,6 @@ export const InputAuthor: FC<InputAuthorProps> = (props) => {
         placeholder="Username"
         onChange={props.change}
       />
-    </>
   );
 };
 

@@ -9,14 +9,11 @@ interface InputProps {
 
 export const Input: FC<InputProps> = ({ value, onChange }) => {
   return (
-    <>
       <input
         className="InputText"
         value={value}
         onChange={onChange}
         style={{ marginRight: '20px' }}
-        ref={ref}
       />
-    </>
   );
 };
