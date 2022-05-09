@@ -1,17 +1,17 @@
 import React from 'react';
 
 interface WithClassesProps {
-    classes: string;
-
+  classes: string;
 }
 
-export function WithClasses<T>(Component: React.Component<T & WithClassesProps>
-    ){
-    return function Wrapper(props: T & WithClassesProps) {
-        return (
-        <div className={props.classes}>
-            <Component {...props} />
-        </div>
-        )
-    }
+export function WithClasses<T>(
+  Component: React.Component<T & WithClassesProps>
+) {
+  return function Wrapper(props: T & WithClassesProps) {
+    return (
+      <div className={props.classes}>
+        <Component {...props} />
+      </div>
+    );
+  };
 }
