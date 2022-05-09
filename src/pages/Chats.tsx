@@ -7,6 +7,8 @@ import { ChatList } from '../components/Chatlist/Chatlist';
 import { Chat, Messages, createCurrentTime } from '../App';
 import { Navigate, useParams } from 'react-router-dom';
 import '../App.scss';
+import style from './Chats/Chats.module.scss';
+import { WithClasses } from '../HOC/WitchClasses';
 
 interface ChatsProps {
   messages: Messages;
@@ -23,6 +25,7 @@ export const Chats: FC<ChatsProps> = ({
   onDeleteChat
 }) => {
   const { chatId } = useParams();
+  const MessageListWithClass = WithClasses(MessageList)
   
   useEffect(() => {
     if (
@@ -88,8 +91,16 @@ export const Chats: FC<ChatsProps> = ({
 
   return (
     <>
-      <ChatList chatList={chatList} onAddChat={onAddChat} onDeleteChat={onDeleteChat}/>
-      <MessageList messages={chatId ? messages[chatId] : []} />
+      <ChatList
+        chatList={chatList}
+        onAddChat={onAddChat}
+        onDeleteChat={onDeleteChat}
+      />
+      {/* <MessageList messages={chatId ? messages[chatId] : []} /> */}
+      <MessageListWithClass
+        messages={chatId ? messages[chatId] : []}
+        classes={style.border}
+      />
       <Form addMessage={addMessage}/>
       <button className="clearMsgButton" onClick={deleteMessages}>
         Clear messages
