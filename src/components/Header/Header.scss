@@ -1,0 +1,19 @@
+.navigationBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-radius: 0;
+    height: 30px;
+    width: 100%;
+    padding: 20px;
+    border-width: 0;
+    border-color: none;
+    border-style: none;
+    border-radius: none;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+li {
+    list-style-type: none;
+}

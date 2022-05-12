@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input render with snapshot 1`] = `
+<DocumentFragment>
+  <input
+    class="InputAuthor"
+    placeholder="Username"
+    type="text"
+    value=""
+  />
+</DocumentFragment>
+`;
