@@ -1,93 +1,33 @@
-import React, { FC, useState, useMemo } from 'react';
+import React, { FC, useState, useMemo, Suspense } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ThemeContext, defaultContext } from './utils/ThemeContext';
-import { Provider } from 'react-redux';
 import { Header } from './components/Header/Header';
-import { Chats } from './pages/Chats';
 import { ChatList } from './components/Chatlist/Chatlist';
 import { Home } from './pages/Home';
 import { Profile } from './pages/Profile';
-import { AUTHOR } from './constants';
-import { nanoid } from 'nanoid';
-import { store } from './store';
+import { AboutWithConnect } from './pages/About';
 
-export interface Chat {
-  id: string;
-  name: string;
-}
-
-export const createCurrentTime = () => {
-  const time = new Date();
-  return `${time.getHours()} : ${
-    (time.getMinutes() < 10 ? '0' : '') + time.getMinutes()
-  }`;
-};
-
-const defaultMessage: Messages = {
-  default: [
-    {
-      id: '1',
-      author: AUTHOR.USER,
-      value: 'Hello geekbrains',
-      time: `${createCurrentTime()}`,
-    },
-  ],
-};
-
-export interface Message {
-  id: string;
-  author: string;
-  value: string;
-  time: string;
-  botMessage?: boolean;
-}
-
-export interface Messages {
-  [key: string]: Message[];
-}
+const Chats = React.lazy(() =>
+  import('./pages/Chats').then((module) => ({
+    default: module.Chats,
+  }))
+);
 
 export const App: FC = () => {
-  const [messages, setMessages] = useState<Messages>(defaultMessage);
   const [theme, setTheme] = useState(defaultContext.theme);
-
-  const chatList = useMemo(
-    () =>
-      Object.entries(messages).map((chat) => ({
-        id: nanoid(),
-        name: chat[0],
-      })),
-    [Object.entries(messages).length]
-  );
-
-  const onAddChat = (chat: Chat) => {
-    if (!messages[chat.name]) {
-      setMessages({
-        ...messages,
-        [chat.name]: [],
-      });
-    }
-  };
-
-  const onDeleteChat = (chatName: string) => {
-    const allChats = { ...messages };
-    delete allChats[chatName];
-    setMessages({
-      ...allChats,
-    });
-  };
 
   const toggleTheme = () => {
     setTheme(theme === 'light' ? 'dark' : 'light');
   };
 
   return (
-    <Provider store={store}>
-      <ThemeContext.Provider
-        value={{
-          theme,
-          toggleTheme,
-        }}
-      >
+    <ThemeContext.Provider
+      value={{
+        theme,
+        toggleTheme,
+      }}
+    >
+      <Suspense>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Header />}>
@@ -95,35 +35,16 @@ export const App: FC = () => {
               <Route path="profile" element={<Profile />} />
 
               <Route path="chats">
-                <Route
-                  index
-                  element={
-                    <ChatList
-                      chatList={chatList}
-                      onAddChat={onAddChat}
-                      onDeleteChat={onDeleteChat}
-                    />
-                  }
-                />
-                <Route
-                  path=":chatId"
-                  element={
-                    <Chats
-                      messages={messages}
-                      setMessages={setMessages}
-                      chatList={chatList}
-                      onAddChat={onAddChat}
-                      onDeleteChat={onDeleteChat}
-                    />
-                  }
-                />
+                <Route index element={<ChatList />} />
+                <Route path=":chatId" element={<Chats />} />
               </Route>
-            </Route>
 
+              <Route path="about" element={<AboutWithConnect />} />
+            </Route>
             <Route path="*" element={<h2>404</h2>} />
           </Routes>
         </BrowserRouter>
-      </ThemeContext.Provider>
-    </Provider>
+      </Suspense>
+    </ThemeContext.Provider>
   );
 };
