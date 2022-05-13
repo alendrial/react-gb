@@ -8,8 +8,6 @@ import { selectName, selectVisible } from "../store/profile/selectors";
 
 export const Profile: FC = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
-  // const visible = useSelector((state: ProfileState) => state.visible);
-  // const name = useSelector((state: ProfileState) => state.name);
   const visible = useSelector(selectVisible);
   const name = useSelector(selectName);
   const dispatch = useDispatch();
