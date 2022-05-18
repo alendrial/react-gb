@@ -1,9 +1,10 @@
-import { createStore, compose, combineReducers, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
+import { compose, combineReducers } from 'redux';
 import { chatReducer, ChatsState } from './chats/reducer';
-import { profileReducer, ProfileState } from './profile/reducer';
+import { ProfileState } from './profile/reducer';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import { configureStore } from '@reduxjs/toolkit';
+import { profileReducer } from './profile/slice';
 
 export const composeEnhancers =
   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -26,9 +27,9 @@ export const rootReducer = combineReducers<StoreState>({
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-export const store = createStore(
-  persistedReducer,
-  composeEnhancers(applyMiddleware(thunk))
-);
+export const store = configureStore({
+  reducer: persistedReducer,
+  devTools: process.env.NODE_ENV !== 'production',
+});
 
 export const persistor = persistStore(store)
