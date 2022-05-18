@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid';
 import { Reducer } from 'redux';
 import { AUTHOR } from '../../constants';
 import { ADD_CHAT, ADD_MESSAGE, DELETE_CHAT, DELETE_MESSAGES } from './actions';
-import { ChatsActions } from './types';
+import { ChatsActions, Message } from './types';
 
 export const createCurrentTime = () => {
   const time = new Date();
@@ -12,13 +12,13 @@ export const createCurrentTime = () => {
   }`;
 };
 
-export interface Message {
-  id: string;
-  author: string;
-  value: string;
-  time: string;
-  botMessage?: boolean;
-}
+// export interface Message {
+//   id: string;
+//   author: string;
+//   value: string;
+//   time: string;
+//   botMessage?: boolean;
+// }
 
 export interface ChatsState {
   [key: string]: Message[];
@@ -58,10 +58,10 @@ export const chatReducer: Reducer<ChatsState, ChatsActions> = (
           ...state[action.chatId],
           {
             id: nanoid(),
-            author: AUTHOR.USER,
-            value: action.message,
+            author: action.message.author,
+            value: action.message.value,
             time: `${createCurrentTime()}`,
-            botMessage: false,
+            botMessage: action.message.botMessage,
           },
         ],
       };
