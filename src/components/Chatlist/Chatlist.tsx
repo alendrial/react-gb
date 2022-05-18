@@ -1,27 +1,24 @@
 import React, { FC, useState } from 'react';
-import { Chat } from '../../App';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { nanoid } from 'nanoid';
-import './ChatList.scss'
+import { addChat, deleteChat } from '../../store/chats/actions';
+import { selectChatList } from '../../store/chats/selectors';
+import './ChatList.scss';
 
-
-interface ChatListProps {
-  chatList: Chat[];
-  onAddChat: (chats: Chat) => void;
-  onDeleteChat: (chatName: string) => void;
-}
-export const ChatList: FC<ChatListProps> = ({ chatList, onAddChat, onDeleteChat }) => {
+export const ChatList: FC = () => {
   const [name, setName] = useState('');
+
+  const dispatch = useDispatch();
+  const chatList = useSelector(
+    selectChatList,
+    (prev, next) => prev.length === next.length
+  );
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     if (name) {
-      onAddChat({
-        id: nanoid(),
-        name: name,
-      });
-
+      dispatch(addChat(name));
       setName('');
     }
   };
@@ -31,12 +28,19 @@ export const ChatList: FC<ChatListProps> = ({ chatList, onAddChat, onDeleteChat 
       <ul className="chatList">
         {chatList.map((chat) => (
           <li className="chatListPos" key={chat.id}>
-            <Link style={{textDecoration: 'none'}} to={`/chats/${chat.name}`}>{chat.name}</Link>
-            <button onClick={() => onDeleteChat(chat.name)} className="removeChatlist">&times;</button>
+            <Link style={{ textDecoration: 'none' }} to={`/chats/${chat.name}`}>
+              {chat.name}
+            </Link>
+            <button
+              onClick={() => dispatch(deleteChat(chat.name))}
+              className="removeChatlist"
+            >
+              &times;
+            </button>
           </li>
         ))}
       </ul>
-      <form onSubmit={ handleSubmit }>
+      <form onSubmit={handleSubmit}>
         <input
           style={{ marginRight: '20px' }}
           className="InputText"
