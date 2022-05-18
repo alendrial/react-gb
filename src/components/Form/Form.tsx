@@ -5,6 +5,8 @@ import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addMessageWithReply } from '../../store/chats/actions';
 import { AUTHOR } from '../../constants';
+import { nanoid } from 'nanoid';
+import { createCurrentTime } from '../../store/chats/reducer';
 
 export const Form: FC = memo(() => {
   const [value, setValue] = useState('');
@@ -16,7 +18,15 @@ export const Form: FC = memo(() => {
 
     if (chatId && value) {
       // dispatch(addMessage(chatId, value));
-      dispatch(addMessageWithReply(chatId, { value, author: AUTHOR.USER }));
+      dispatch(
+        addMessageWithReply(chatId, {
+          value,
+          author: AUTHOR.USER,
+          time: createCurrentTime(),
+          id: nanoid(),
+          botMessage: false,
+        })
+      );
     }
     setValue('');
   };

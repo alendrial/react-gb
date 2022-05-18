@@ -38,8 +38,7 @@ export const deleteMessages: DeleteMessages = (chatId) => ({
 let timeout: NodeJS.Timeout;
 
 export const addMessageWithReply =
-  (chatId: string, message: MessageState) =>
-  (dispatch: Dispatch) => {
+  (chatId: string, message: MessageState): any => (dispatch: any) => {
     dispatch(addMessage(chatId, message));
     if (message.author !== AUTHOR.BOT) {
       if (timeout) {

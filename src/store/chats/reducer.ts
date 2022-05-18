@@ -1,4 +1,3 @@
-import { AnyTxtRecord } from 'dns';
 import { nanoid } from 'nanoid';
 import { Reducer } from 'redux';
 import { AUTHOR } from '../../constants';
@@ -11,14 +10,6 @@ export const createCurrentTime = () => {
     (time.getMinutes() < 10 ? '0' : '') + time.getMinutes()
   }`;
 };
-
-// export interface Message {
-//   id: string;
-//   author: string;
-//   value: string;
-//   time: string;
-//   botMessage?: boolean;
-// }
 
 export interface ChatsState {
   [key: string]: Message[];
