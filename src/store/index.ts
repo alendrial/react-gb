@@ -9,21 +9,18 @@ import { profileReducer } from './profile/slice';
 export const composeEnhancers =
   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-export interface StoreState {
-  profile: ProfileState;
-  chats: ChatsState;
-}
+export type StoreState = ReturnType<typeof rootReducer>;
 
 export const persistConfig = {
-  key: "root",
+  key: 'root',
   storage,
   blacklist: ['profile'],
-}
+};
 
-export const rootReducer = combineReducers<StoreState>({
+export const rootReducer = combineReducers({
   profile: profileReducer,
   chats: chatReducer,
-})
+});
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
@@ -32,4 +29,4 @@ export const store = configureStore({
   devTools: process.env.NODE_ENV !== 'production',
 });
 
-export const persistor = persistStore(store)
+export const persistor = persistStore(store);
