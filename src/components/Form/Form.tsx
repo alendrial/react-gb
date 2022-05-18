@@ -3,7 +3,7 @@ import { Input } from '../InputMessage/Input';
 import { Button } from '../Button/Button';
 import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { addMessage, addMessageWithReply } from '../../store/chats/actions';
+import { addMessageWithReply } from '../../store/chats/actions';
 import { AUTHOR } from '../../constants';
 
 export const Form: FC = memo(() => {

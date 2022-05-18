@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useEffect } from 'react';
+import React, { FC } from 'react';
 import { MessageList } from './../components/MessageList/MessageList';
 import { Form } from './../components/Form/Form';
 import { ChatList } from '../components/Chatlist/Chatlist';

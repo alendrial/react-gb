@@ -1,4 +1,3 @@
-import { nanoid } from 'nanoid';
 import { Dispatch } from 'redux';
 import { AUTHOR } from '../../constants';
 import { createCurrentTime } from './reducer';
@@ -40,7 +39,7 @@ let timeout: NodeJS.Timeout;
 
 export const addMessageWithReply =
   (chatId: string, message: MessageState) =>
-  (dispatch: Dispatch<ReturnType<AddMessage>>) => {
+  (dispatch: Dispatch) => {
     dispatch(addMessage(chatId, message));
     if (message.author !== AUTHOR.BOT) {
       if (timeout) {

@@ -2,20 +2,18 @@ import React, { FC } from 'react';
 import './InputAuthor.scss';
 
 interface InputAuthorProps {
-  author: string,
-  change: (event: React.ChangeEvent<HTMLInputElement>) => void,
+  author: string;
+  change: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const InputAuthor: FC<InputAuthorProps> = (props) => {
   return (
-      <input
-        className="InputAuthor"
-        type="text"
-        value={props.author}
-        placeholder="Username"
-        onChange={props.change}
-      />
+    <input
+      className="InputAuthor"
+      type="text"
+      value={props.author}
+      placeholder="Username"
+      onChange={props.change}
+    />
   );
 };
-
-
