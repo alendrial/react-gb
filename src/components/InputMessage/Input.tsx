@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import './Input.scss';
 
 interface InputProps {
   value: string;
