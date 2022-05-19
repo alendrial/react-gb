@@ -8,7 +8,7 @@ import style from './Chats/Chats.module.scss';
 import { WithClasses } from '../HOC/WitchClasses';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { selectChatList, selectChats } from '../store/chats/selectors';
-import { deleteMessages } from '../store/chats/actions';
+import { deleteMessages } from '../store/chats/slice';
 
 export const Chats: FC = () => {
   const { chatId } = useParams();
@@ -61,7 +61,7 @@ export const Chats: FC = () => {
     event.preventDefault();
 
     if (chatId) {
-      dispatch(deleteMessages(chatId));
+      dispatch(deleteMessages({ chatId }));
     }
   };
 

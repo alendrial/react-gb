@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { addChat, deleteChat } from '../../store/chats/actions';
+import { addChat, deleteChat } from '../../store/chats/slice';
 import { selectChatList } from '../../store/chats/selectors';
 
 export const ChatList: FC = () => {
@@ -17,7 +17,7 @@ export const ChatList: FC = () => {
     event.preventDefault();
 
     if (name) {
-      dispatch(addChat(name));
+      dispatch(addChat({ name }));
       setName('');
     }
   };
@@ -31,7 +31,7 @@ export const ChatList: FC = () => {
               {chat.name}
             </Link>
             <button
-              onClick={() => dispatch(deleteChat(chat.name))}
+              onClick={() => dispatch(deleteChat({ chatId: chat.name }))}
               className="removeChatlist"
             >
               &times;
