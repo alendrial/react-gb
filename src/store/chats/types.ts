@@ -1,4 +1,3 @@
-import { Dispatch } from 'redux';
 import { ADD_CHAT, ADD_MESSAGE, DELETE_CHAT, DELETE_MESSAGES } from './actions';
 
 export type ChatsActions =
@@ -22,14 +21,6 @@ export interface Chat {
   id: string;
   name: string;
 }
-
-// export interface Message {
-//   id: string;
-//   author: string;
-//   value: string;
-//   time: string;
-//   botMessage?: boolean;
-// }
 
 export interface Messages {
   [key: string]: Message[];

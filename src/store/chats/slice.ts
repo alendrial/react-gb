@@ -1,6 +1,6 @@
 import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-import { Message, MessageState } from './types';
+import { MessageState } from './types';
 
 import { AUTHOR } from '../../constants';
 import { nanoid } from 'nanoid';
