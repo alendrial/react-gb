@@ -1,3 +1,4 @@
+import { Dispatch } from 'redux';
 import { ADD_CHAT, ADD_MESSAGE, DELETE_CHAT, DELETE_MESSAGES } from './actions';
 
 export type ChatsActions =
@@ -6,18 +7,29 @@ export type ChatsActions =
   | ReturnType<AddMessage>
   | ReturnType<DeleteMessages>
 
+export type Message = {
+  value: string;
+  author: string;
+  time: string;
+  botMessage?: boolean;
+}
+
+export type MessageState = Message & {
+  id: string;
+};
+
 export interface Chat {
   id: string;
   name: string;
 }
 
-export interface Message {
-  id: string;
-  author: string;
-  value: string;
-  time: string;
-  botMessage?: boolean;
-}
+// export interface Message {
+//   id: string;
+//   author: string;
+//   value: string;
+//   time: string;
+//   botMessage?: boolean;
+// }
 
 export interface Messages {
   [key: string]: Message[];
@@ -35,11 +47,11 @@ export type DeleteChat = (chatId: string) => {
 
 export type AddMessage = (
   chatId: string,
-  message: string
+  message: Message
 ) => {
   type: typeof ADD_MESSAGE;
   chatId: string;
-  message: string;
+  message: Message;
 };
 
 export type DeleteMessages = (chatId: string) => {

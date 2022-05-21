@@ -1,9 +1,8 @@
 import React, { FC, useState } from 'react';
-import { shallowEqual, useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { addChat, deleteChat } from '../../store/chats/actions';
 import { selectChatList } from '../../store/chats/selectors';
-import './ChatList.scss';
 
 export const ChatList: FC = () => {
   const [name, setName] = useState('');

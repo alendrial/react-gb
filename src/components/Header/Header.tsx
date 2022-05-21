@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import { Outlet, NavLink } from 'react-router-dom';
-import './Header.scss'
 
 const navigate = [
   {

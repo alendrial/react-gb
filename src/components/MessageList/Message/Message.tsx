@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import './Message.scss';
 
 export interface Message {
   id?: number;
