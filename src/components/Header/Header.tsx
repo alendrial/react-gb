@@ -1,6 +1,7 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Outlet, NavLink, Link } from 'react-router-dom';
+import { logOut } from '../../services/firebase';
 import { selectAuth } from '../../store/profile/selectors';
 import { changeAuth } from '../../store/profile/slice';
 
@@ -33,8 +34,18 @@ const navigate = [
 ];
 
 export const Header: FC = () => {
-  const dispatch = useDispatch();
+  const [error, setError] = useState('')
+  
   const auth = useSelector(selectAuth);
+
+  const handleSignOut = async () => {
+    setError('');
+    try {
+      await logOut();
+    } catch (err) {
+      setError((err as Error).message);
+    }
+  };
 
   return (
     <header>
@@ -51,11 +62,13 @@ export const Header: FC = () => {
         ))}
       </ul>
       {auth ? (
-        <button onClick={() => dispatch(changeAuth(false))}>logout</button>
+        <button onClick={handleSignOut}>logout</button>
       ) : (
-        <Link to="/signin">Sing In</Link>
+        <>
+        <Link to="/signin">Sing In</Link> | <Link to="/signup">Sign Up</Link>
+        </>
       )}
-
+      {error && <p style={{ color: 'red' }}>{error}</p>}
       <main>
         <Outlet />
       </main>
